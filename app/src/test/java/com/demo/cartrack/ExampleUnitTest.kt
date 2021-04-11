@@ -1,4 +1,4 @@
-package com.demo.cartrackdemo
+package com.demo.cartrack
 
 import org.junit.Test
 

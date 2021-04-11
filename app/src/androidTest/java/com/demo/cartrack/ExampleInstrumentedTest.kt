@@ -1,4 +1,4 @@
-package com.demo.cartrackdemo
+package com.demo.cartrack
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
