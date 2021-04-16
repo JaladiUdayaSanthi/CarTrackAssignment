@@ -1,20 +1,15 @@
 package com.demo.cartrack.viewmodel
 
-import android.text.Editable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.demo.cartrack.constants.UrlConstants
-import com.demo.cartrack.data.DetailsResponse
-import com.demo.cartrack.repository.ServiceRepository
-import com.demo.cartrack.usecase.DetailsUseCase
+import com.demo.cartrack.repository.GetDetailsData
+import com.demo.cartrack.repository.GetDetailsRepository
 import com.demo.cartrack.usecase.LoginUseCase
-import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
 import java.lang.Error
 
 class LoginViewModel(private val loginUseCase: LoginUseCase,
-private val serviceRepo: ServiceRepository): ViewModel(), KoinComponent {
+private val reposiotry: GetDetailsRepository): ViewModel(), KoinComponent {
 
     fun storeUserDetails(userName: String, password: String): MutableLiveData<Boolean> {
        return loginUseCase.storeUserDetails(userName, password)
@@ -33,15 +28,13 @@ private val serviceRepo: ServiceRepository): ViewModel(), KoinComponent {
         return loginUseCase.validatePassword(password)
     }
 
-    fun getDetails(cbOnResult: (DetailsResponse) -> Unit, cbOnError: (Error) -> Unit) {
-        viewModelScope.launch {
-            val result = serviceRepo.getUserDetails(UrlConstants.url)
-            if (result is Result.Success) {
-                cbOnResult(result.success)
-            } else {
-                result is Result.Error
-                cbOnError(result.error)
-            }
-        }
+    fun getDetails(cbOnResult: (GetDetailsData?) -> Unit, cbOnError: (Error?) -> Unit) {
+       reposiotry.getUserDetails(
+           {
+               cbOnResult(it)
+           },{
+              cbOnError(it)
+           }
+       )
     }
 }

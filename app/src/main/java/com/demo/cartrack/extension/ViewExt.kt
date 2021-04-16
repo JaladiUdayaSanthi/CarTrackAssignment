@@ -2,15 +2,12 @@ package com.demo.cartrack.extension
 
 import android.content.Context
 import android.widget.ArrayAdapter
-import android.R
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.widget.doAfterTextChanged
-import androidx.core.widget.doBeforeTextChanged
-import androidx.core.widget.doOnTextChanged
+import android.R
 
 fun Context.generateDataAdapter(arrayData: List<Any>): ArrayAdapter<Any> {
     val dataAdapter: ArrayAdapter<Any> = ArrayAdapter(

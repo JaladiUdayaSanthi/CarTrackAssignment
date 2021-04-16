@@ -11,20 +11,19 @@ abstract class BaseApplication : Application(), Application.ActivityLifecycleCal
         super.onCreate()
     }
 
-    override fun onActivityStarted(activity: Activity?) {
-
-    }
-
-    override fun onActivityDestroyed(activity: Activity?) {
-    }
-
-    override fun onActivitySaveInstanceState(activity: Activity?, outState: Bundle?) {
-    }
-
-    override fun onActivityStopped(activity: Activity?) {
-    }
-
-    override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
-    }
+//    override fun onActivityStarted(activity: Activity?) {
+//    }
+//
+//    override fun onActivityDestroyed(activity: Activity?) {
+//    }
+//
+//    override fun onActivitySaveInstanceState(activity: Activity?, outState: Bundle?) {
+//    }
+//
+//    override fun onActivityStopped(activity: Activity?) {
+//    }
+//
+//    override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
+//    }
 
 }

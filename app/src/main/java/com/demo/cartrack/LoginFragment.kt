@@ -1,4 +1,4 @@
-package com.demo.cartrack.login
+package com.demo.cartrack
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,13 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.demo.cartrack.MainActivity
-import com.demo.cartrack.R
 import com.demo.cartrack.extension.onChange
 import com.demo.cartrack.extension.onClick
 import com.demo.cartrack.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
-import kotlinx.android.synthetic.main.fragment_signup.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 /**
@@ -66,7 +63,7 @@ class LoginFragment : Fragment() {
 
     private fun btnClicks() {
         btnLogin.onClick {
-            if(loginVieModel.checkUserDetails(editTextUserName.text.toString(), editTextPassword.text.toString()) == true)
+            if(loginVieModel.checkUserDetails(editTextUserName.text.toString(), editTextPassword.text.toString()).value == true)
                 Toast.makeText(mActivity, "LOGIN DETAILS DOES NOT EXIST", Toast.LENGTH_SHORT).show()
             else
                 findNavController().navigate(R.id.action_LoginFragment_to_DetailsFragment)

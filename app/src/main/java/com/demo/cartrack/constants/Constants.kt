@@ -6,6 +6,6 @@ object CharacterLength {
     const val PASS_MAX_LENGTH = 24
 }
 
-object UrlConstants {
-    const val url = "jsonplaceholder.typicode.com/users"
+object URL {
+    const val detailsURL = "https://jsonplaceholder.typicode.com/users"
 }
